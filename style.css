@@ -130,6 +130,8 @@ a {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  outline: none;
+  border: none;
 }
 /* Countdown */
 .time-countdown {
@@ -382,11 +384,11 @@ a {
   animation-iteration-count: 1;
 }
 .contact-container {
-  max-width: 420px;
+  max-width: 350px;
   width: 100%;
   position: fixed;
   right: 10px;
-  min-height: 700px;
+  min-height: 800px;
   background: white;
   display: none;
   bottom: 80px;
@@ -515,7 +517,6 @@ a {
   flex-direction: row;
   gap: 10px;
   color: black;
-
   font-size: 14px;
 }
 .ic-right {
@@ -526,6 +527,69 @@ a {
   display: block;
   animation-name: toggleContact;
   animation-duration: 0.5s;
+}
+.chat-content {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  padding: 10px 25px;
+  display: none;
+}
+.active {
+  display: block;
+}
+.chat-close {
+  text-align: right;
+  color: rgb(209, 208, 208);
+  cursor: pointer;
+}
+.chat-context {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 100px;
+}
+.chat-context .chat-name {
+  display: inline-flex;
+  margin: 0 auto;
+}
+.chat-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.chat-item {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 3px;
+  flex-direction: column;
+}
+.chat-input {
+  padding: 10px;
+  outline: none;
+  border: 1px solid #f1f3f4;
+}
+.chat-label {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+}
+.chat-form--btn {
+  outline: none;
+  background: #2b34dd;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+  border: none;
+  padding: 10px;
+  width: 90%;
+  display: block;
+  margin: 10px auto 0;
+  cursor: pointer;
 }
 /* Animation */
 @keyframes scaleBtn {

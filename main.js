@@ -2,7 +2,9 @@ const btnContact = document.querySelector(".contact"),
   btnOpen = document.querySelector(".btn-open"),
   btnClose = document.querySelector(".btn-close"),
   btnCloseContact = document.querySelector(".contact-close"),
-  contactContainer = document.querySelector(".contact-container");
+  contactContainer = document.querySelector(".contact-container"),
+  btnContactInfo = document.querySelector(".chat-btn"),
+  btnCloseChat = document.querySelector(".chat-close");
 btnContact.addEventListener("click", function () {
   if (
     btnClose.classList.contains("none") &&
@@ -24,6 +26,17 @@ const handleCloseContact = () => {
       btnOpen.classList.replace("none", "block");
       btnClose.classList.replace("block", "none");
     }
+  });
+};
+const handleContact = () => {
+  btnContactInfo.addEventListener("click", function () {
+    document.querySelector(".chat-content").classList.add("active");
+  });
+};
+const handleCloseChat = () => {
+  btnCloseChat.addEventListener("click", function () {
+    document.querySelector(".chat-content").classList.remove("active");
+    document.querySelector(".contact-item.chat").style = "display: none";
   });
 };
 function getTimeRemaining(endtime) {
@@ -84,4 +97,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".form-signup").classList.add("animation-fadeup");
   }, 300);
   handleCloseContact();
+  handleContact();
+  handleCloseChat();
 });
