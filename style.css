@@ -9,6 +9,9 @@
 body {
   max-width: 1920px;
 }
+a {
+  text-decoration: none;
+}
 .wrapper {
   display: block;
   width: 100%;
@@ -295,6 +298,8 @@ body {
   margin: 20px auto 20px;
   background: red;
   width: 45%;
+  color: white;
+  font-weight: bold;
   padding: 13px 15px;
   text-align: center;
 }
@@ -503,15 +508,12 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-a {
-  text-decoration: none;
-}
+
 .contact-item--info {
   display: flex;
   align-items: center;
   flex-direction: row;
   gap: 10px;
-  text-decoration: none;
   color: black;
 
   font-size: 14px;
