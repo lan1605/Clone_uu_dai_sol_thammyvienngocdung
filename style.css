@@ -121,9 +121,9 @@ body {
 }
 .btn {
   text-transform: uppercase;
-  font-weight: bolder;
+  font-weight: 800;
   font-size: 20px;
-  background: linear-gradient(to left, #c89917, rgb(247, 227, 189), #c89917);
+  background: linear-gradient(to left, #c89917, rgb(252, 234, 201), #c89917);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
