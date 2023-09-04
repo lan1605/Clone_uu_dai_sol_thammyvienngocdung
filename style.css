@@ -326,9 +326,9 @@ body {
   font-size: 30px;
   font-weight: bold;
   text-decoration: none;
-  /* max-width: 420px; */
+  max-width: 420px;
   cursor: pointer;
-  width: 420px;
+  width: 100%;
   animation: btnOfferScale 1s ease infinite;
   overflow: auto !important;
 }
@@ -370,7 +370,161 @@ body {
 .btn-open.none {
   display: none;
 }
+.animation-fadeup {
+  animation-name: fadeInUp;
+  animation-delay: 0.2s;
+  animation-duration: 1.5s;
+  animation-iteration-count: 1;
+}
+.contact-container {
+  max-width: 420px;
+  width: 100%;
+  position: fixed;
+  right: 10px;
+  min-height: 700px;
+  background: white;
+  display: none;
+  bottom: 80px;
+  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.16);
+}
+.contact-header {
+  background: rgb(20, 22, 141);
+  color: white;
+  height: 150px;
+  padding: 10px 15px 0;
+  position: relative;
+  width: 100%;
+}
+.contact-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-bottom: 5px;
+}
+.contact-close {
+  display: none;
+}
+.contact-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.contact-logo img {
+  width: 35px;
+  height: 35px;
+}
+.contact-logo span {
+  font-weight: bold;
+}
+.contact-desc {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+.contact-content {
+  color: black;
+  position: absolute;
+  top: 120px;
+  display: inline-flex;
+  padding: 0 15px;
+  width: 100%;
+  gap: 15px;
+  flex-direction: column;
+}
+.contact-item {
+  background: white;
+  border: 1px solid #eeeeee;
+  border-radius: 3px;
+  padding: 15px;
+}
+.chat-title,
+.contact-item--title {
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 10px;
 
+  font-family: "Roboto", sans-serif;
+}
+.chat-desc {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+.chat-action {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.chat-name {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  border-radius: 50%;
+  color: white;
+  font-size: 14px;
+  background: rgb(10, 103, 233);
+}
+.chat-btn {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-direction: row;
+  padding: 0 20px;
+  cursor: pointer;
+  background: rgb(20, 22, 141);
+  color: white;
+}
+.chat-btn img {
+  width: 20px;
+  height: 20px;
+}
+.chat-btn span {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+}
+.contact-item--list {
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.contact-item--social {
+  background: white;
+  border: 1px solid #eeeeee;
+  border-radius: 3px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+a {
+  text-decoration: none;
+}
+.contact-item--info {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+  text-decoration: none;
+  color: black;
+
+  font-size: 14px;
+}
+.ic-right {
+  width: 15px;
+  height: 15px;
+}
+.visible {
+  display: block;
+  animation-name: toggleContact;
+  animation-duration: 0.5s;
+}
 /* Animation */
 @keyframes scaleBtn {
   50% {
@@ -386,7 +540,6 @@ body {
 }
 @keyframes dotAnimateBefore {
   0% {
-    /* box-shadow: 9984px 0 0 -5px; */
     scale: 1;
     background: rgb(212, 212, 212);
   }
@@ -402,7 +555,6 @@ body {
 }
 @keyframes dotAnimate {
   0% {
-    /* box-shadow: 9984px 0 0 -5px; */
     scale: 1;
     background: rgb(212, 212, 212);
   }
@@ -418,7 +570,6 @@ body {
 }
 @keyframes dotAnimateAfter {
   0% {
-    /* box-shadow: 9984px 0 0 -5px; */
     scale: 1;
     background: rgb(212, 212, 212);
   }
@@ -454,12 +605,85 @@ body {
     transform: rotateZ(0);
   }
 }
-
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes toggleContact {
+  0% {
+    opacity: 0;
+    bottom: -80px;
+  }
+  100% {
+    opacity: 1;
+    bottom: 80px;
+  }
+}
 @media screen and (max-width: 1023px) {
   .comment {
     padding-left: 10px;
   }
   .comment-content {
     margin-left: 0;
+  }
+}
+@media screen and (max-width: 767px) {
+  .contact-container {
+    min-height: 500px;
+    height: 100%;
+    bottom: 0;
+    width: 100%;
+    right: 0;
+  }
+  .contact-close {
+    display: block;
+    border-radius: 0 0 0 15px;
+    padding: 5px 10px 8px;
+    text-align: center;
+    cursor: pointer;
+    background: rgb(17, 18, 112);
+  }
+  .contact-header {
+    padding-top: 20px;
+  }
+
+  @keyframes toggleContact {
+    0% {
+      opacity: 0;
+      /* bottom: -70px; */
+    }
+    100% {
+      opacity: 1;
+      /* bottom: 70px; */
+    }
+  }
+}
+@media screen and (max-width: 400px) {
+  .btn-signup {
+    width: 55%;
+  }
+  .time-countdown {
+    width: 75%;
+  }
+  .time-countdown--content {
+    gap: 25px;
+  }
+  .dot,
+  .dot::after,
+  .dot::before {
+    width: 7px;
+    height: 7px;
+  }
+  .dot::before {
+    left: 10px;
+  }
+  .dot::after {
+    left: -10px;
   }
 }

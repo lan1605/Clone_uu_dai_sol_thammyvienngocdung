@@ -1,20 +1,31 @@
 const btnContact = document.querySelector(".contact"),
   btnOpen = document.querySelector(".btn-open"),
-  btnClose = document.querySelector(".btn-close");
+  btnClose = document.querySelector(".btn-close"),
+  btnCloseContact = document.querySelector(".contact-close"),
+  contactContainer = document.querySelector(".contact-container");
 btnContact.addEventListener("click", function () {
-  btnOpen.classList.add("none");
-  btnClose.classList.add("block");
   if (
     btnClose.classList.contains("none") &&
     btnOpen.classList.contains("block")
   ) {
     btnOpen.classList.replace("block", "none");
     btnClose.classList.replace("none", "block");
+    contactContainer.classList.add("visible");
   } else {
     btnOpen.classList.replace("none", "block");
     btnClose.classList.replace("block", "none");
+    contactContainer.classList.remove("visible");
   }
 });
+const handleCloseContact = () => {
+  btnCloseContact.addEventListener("click", function () {
+    if (contactContainer.classList.contains("visible")) {
+      contactContainer.classList.remove("visible");
+      btnOpen.classList.replace("none", "block");
+      btnClose.classList.replace("block", "none");
+    }
+  });
+};
 function getTimeRemaining(endtime) {
   var t = Date.parse(endtime) - Date.parse(new Date());
   var seconds = Math.floor((t / 1000) % 60);
@@ -66,3 +77,11 @@ function initializeClock(id, endtime) {
 
 var deadline = "Thu Aug 31 2023 15:56:25 GMT+0700 (Indochina Time)";
 initializeClock("countdown", deadline);
+
+document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(() => {
+    document.querySelector(".comment").classList.add("animation-fadeup");
+    document.querySelector(".form-signup").classList.add("animation-fadeup");
+  }, 300);
+  handleCloseContact();
+});
